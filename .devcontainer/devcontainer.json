@@ -1,0 +1,7 @@
+{
+    "name": "My Dev Container",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    } // Or whatever user your Dockerfile sets up
+}
