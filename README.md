@@ -32,7 +32,7 @@ curl -X PUT "http://localhost:9200/works-v26-test" -H 'Content-Type: application
   }
 }'
 ```
-This will create the index structure, required for the application to function properly.
+This will create the index structure, required for the application to function properly. If you want to ingest some data, please follow this repo's README: https://github.com/cabral1888/openalex-data-ingestion?tab=readme-ov-file#openalex-ingestion
 
 #### Destroying the infra assets
 If needed, in order to destroy the containers created in the previous step, you can run:
