@@ -25,6 +25,8 @@ def shared_view(request, fields_dict, index_name, default_sort, connection='defa
     """Primary function used to search, filter, and aggregate across all entities."""
     params = parse_params(request)
     s = construct_query(params, fields_dict, index_name, default_sort, connection)
+    import json
+    print(f"[CUSTOM] s query: {json.dumps(s.to_dict(), indent=2)}")
     response = execute_search(s, params)
     result = format_response(response, params, index_name, fields_dict, s)
     if settings.DEBUG:
@@ -163,6 +165,7 @@ def execute_search(s, params):
     paginate = get_pagination(params)
 
     # default case: Elasticsearch connection
+    print(f"[IGOR] s._using: {s._using}")
     if s._using != 'v2':
         if params["group_by"]:
             return s.execute()
